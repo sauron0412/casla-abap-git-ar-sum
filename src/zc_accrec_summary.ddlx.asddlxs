@@ -1,0 +1,131 @@
+@Metadata.layer: #CORE
+@UI.headerInfo: { typeName: 'Accounts Receivalbe Summary' }
+
+annotate entity ZC_ACCREC_SUMMARY with
+{
+  @UI.selectionField: [{ position: 40 }]
+  @EndUserText.label:'Posting Start Date'
+  @UI.lineItem: [{ position: 1000 }]
+  @UI.connectedFields: [{cssDefault.width: '1px'}]
+  @Consumption.filter.selectionType: #SINGLE
+  p_start_date;
+  @UI.selectionField: [{ position: 50 }]
+  @EndUserText.label: 'Posting End Date'
+  @UI.lineItem: [{ position: 1010 }]
+  // set the column width to 150px
+  @UI.connectedFields: [{cssDefault.width: '1px'}]
+  @Consumption.filter.selectionType: #SINGLE
+  p_end_date;
+
+  @UI.lineItem: [{ position: 10 }]
+  @UI.selectionField: [{ position: 10 }]
+  @EndUserText.label: 'Company Code'
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'I_CompanyCode', element: 'CompanyCode' } }]
+  @Consumption.filter.selectionType: #SINGLE
+  RBUKRS;
+
+  @UI.lineItem: [{ position: 19 }]
+  @EndUserText.label: 'Business Partner Group'
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'I_BusinessPartnerGrouping', element: 'BusinessPartnerGrouping' } }]
+  BP_GR;
+
+  @UI.lineItem: [{ position: 55 }]
+  @UI.selectionField: [{ position: 30 }]
+  @EndUserText.label: 'G/L Account'
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'I_GLAccount', element: 'GLAccount' } }]
+  //  @Consumption.valueHelpDefinition: [
+  //        { entity:  { name:    'I_GLAcctInChtOfAcctsStdVH',
+  //                     element: 'GLAccount' }
+  //        }]
+  AccountNumber;
+
+  @UI.lineItem: [{ position: 30 }]
+  @EndUserText.label: 'Business Partner Group Title'
+  BP_GR_TITLE;
+
+  @UI.lineItem: [{ position: 40 }]
+  @UI.selectionField: [{ position: 20 }]
+  @EndUserText.label: 'Business Partner'
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'I_BusinessPartner', element: 'BusinessPartner' } }]
+  BP;
+
+  @UI.lineItem: [{ position: 50 }]
+  @EndUserText.label: 'Business Partner Name'
+  BP_NAME;
+
+  @UI.lineItem: [{ position: 60 }]
+  @UI.selectionField: [{ position: 60 }]
+  @EndUserText.label: 'Transaction Currency'
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'I_Currency', element: 'Currency' } }]
+  @Consumption.filter: {
+    selectionType: #SINGLE,
+    mandatory: false,
+    defaultValue: ''
+    }
+  RHCUR;
+
+  // Company Code Currency
+  @UI.lineItem: [{ position: 65 }]
+  @EndUserText.label: 'Company Code Currency'
+  COMPANYCODECURRENCY;
+
+  @UI.lineItem: [{ position: 70 }]
+  @UI.lineItem: [{ hidden: false }]
+  @Consumption.filter.hidden: true
+  @EndUserText.label: 'Opening Debit In Transaction Currency'
+  OPEN_DEBIT_TRAN;
+
+  @UI.lineItem: [{ position: 75 }]
+  @EndUserText.label: 'Opening Debit In Company Code Currency'
+  OPEN_DEBIT;
+
+  @UI.lineItem: [{ position: 80 }]
+  @UI.lineItem: [{ hidden: false }]
+  @Consumption.filter.hidden: true
+  @EndUserText.label: 'Opening Credit In Transaction Currency'
+  OPEN_CREDIT_TRAN;
+
+  @UI.lineItem: [{ position: 85 }]
+  @EndUserText.label: 'Opening Credit In Company Code Currency'
+  OPEN_CREDIT;
+
+  @UI.lineItem: [{ position: 90 }]
+  @UI.lineItem: [{ hidden: false }]
+  @Consumption.filter.hidden: true
+  @EndUserText.label: 'Total Debit In Transaction Currency'
+  TOTAL_DEBIT_TRAN;
+
+  @UI.lineItem: [{ position: 95 }]
+  @EndUserText.label: 'Total Debit In Company Code Currency'
+  TOTAL_DEBIT;
+
+  @UI.lineItem: [{ position: 100 }]
+  @UI.lineItem: [{ hidden: false }]
+  @Consumption.filter.hidden: true
+  @EndUserText.label: 'Total Credit In Transaction Currency'
+  TOTAL_CREDIT_TRAN;
+
+  @UI.lineItem: [{ position: 105 }]
+  @EndUserText.label: 'Total Credit In Company Code Currency'
+  TOTAL_CREDIT;
+
+  @UI.lineItem: [{ position: 110 }]
+  @UI.lineItem: [{ hidden: false }]
+  @Consumption.filter.hidden: true
+  @EndUserText.label: 'Ending Debit In Transaction Currency'
+  END_DEBIT_TRAN;
+
+  @UI.lineItem: [{ position: 115 }]
+  @EndUserText.label: 'Ending Debit In Company Code Currency'
+  END_DEBIT;
+
+  @UI.lineItem: [{ position: 120 }]
+  @UI.lineItem: [{ hidden: false }]
+  @Consumption.filter.hidden: true
+  @EndUserText.label: 'Ending Credit In Transaction Currency'
+  END_CREDIT_TRAN;
+
+  @UI.lineItem: [{ position: 120 }]
+  @EndUserText.label: 'Ending Credit In Company Code Currency'
+  END_CREDIT;
+}

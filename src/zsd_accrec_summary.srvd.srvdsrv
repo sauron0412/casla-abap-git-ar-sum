@@ -1,0 +1,4 @@
+@EndUserText.label: 'Accounts Receivable Summary'
+define service ZSD_ACCREC_SUMMARY {
+  expose ZC_ACCREC_SUMMARY;
+}
